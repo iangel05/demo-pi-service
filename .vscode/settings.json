@@ -1,0 +1,27 @@
+{
+	"editor.tabSize": 2,
+	"[javascript]": {
+		"editor.formatOnSave": false,
+	},
+	"eslint.enable": true,
+	"eslint.autoFixOnSave": true,
+	"eslint.options": {
+		"parserOptions": {
+			"ecmaVersion": 8
+		},
+		"rules": {
+			"no-console": "off",
+			"func-names": "off",
+			"no-use-before-define": "off",
+			"prefer-destructuring": "off",
+		}
+	},
+	"saveAndRunReg": {
+		"commands": [{
+			"match": ".js$",
+			"cmd": "rsync -avzR -e ssh ${relativeFile} pi@192.168.0.71:/home/pi/`basename ${workspaceFolder}`/",
+			"useShortcut": false,
+			"silent": false
+		}]
+	}
+}

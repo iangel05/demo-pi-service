@@ -1,0 +1,29 @@
+{
+  "name": "demo-pi-updater",
+  "version": "1.0.0",
+  "description": "Configuration application for demo service running on a PI device",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "sbc-debug": "sudo systemctl stop demo-pi-updater.service && node --inspect-brk=`hostname -I | xargs`:9229 .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "iAngel",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
+  }
+}
