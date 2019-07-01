@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 
+// serve static content
+app.use(express.static('../resources'));
+
 // use body-parser to parse the body of the request
 app.use(bodyParser.json());
 

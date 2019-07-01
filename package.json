@@ -1,16 +1,14 @@
 {
-  "name": "demo-pi-updater",
+  "name": "demo-pi-service",
   "version": "1.0.0",
-  "description": "Configuration application for demo service running on a PI device",
+  "description": "Service that provides resources to demo-pi-updater service",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "sbc-debug": "sudo systemctl stop demo-pi-updater.service && node --inspect-brk=`hostname -I | xargs`:9229 .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "keywords": [],
   "author": "iAngel",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4"

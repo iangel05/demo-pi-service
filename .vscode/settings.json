@@ -18,7 +18,7 @@
 	},
 	"saveAndRunReg": {
 		"commands": [{
-			"match": ".js$",
+			"match": "off.js$|off.json$",
 			"cmd": "rsync -avzR -e ssh ${relativeFile} pi@192.168.0.71:/home/pi/`basename ${workspaceFolder}`/",
 			"useShortcut": false,
 			"silent": false

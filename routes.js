@@ -1,30 +1,31 @@
 const router = require('express').Router();
+const { readFile } = require('./modules/tools');
 
-const demo = {
+const scenario = {
   create: async (newDemo) => {
     console.log(newDemo);
     return newDemo;
   },
 
   read: async () => {
-    return 'DEMO';
+    return (await readFile('./result.json')).toString('utf-8');
   },
 };
 
-router.post('/demo', (req, res, next) => {
-  demo
-    .create(req.body.demo)
-    .then((createResult) => {
-      res.send(createResult);
+router.get('/scenario', (req, res, next) => {
+  scenario
+    .read()
+    .then((readResponse) => {
+      res.send(readResponse);
     })
     .catch(next);
 });
 
-router.get('/demo', (req, res, next) => {
-  demo
-    .read()
-    .then((readResponse) => {
-      res.send(readResponse);
+router.post('/scenario', (req, res, next) => {
+  scenario
+    .create(req.body.demo)
+    .then((createResult) => {
+      res.send(createResult);
     })
     .catch(next);
 });
