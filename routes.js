@@ -7,14 +7,27 @@ const scenario = {
     return newDemo;
   },
 
-  read: async () => {
-    return (await readFile('./result.json')).toString('utf-8');
+  read: async (userId) => {
+    const { users } = JSON.parse(
+      (await readFile('./scenarios.json')).toString('utf-8')
+    );
+    if (users) {
+      const user = users.find((usr) => {
+        return usr.name === userId;
+      });
+      if (user) {
+        return user.scenario;
+      }
+      throw Error(`User ${userId} not found!`);
+    } else {
+      throw Error('No users defined!');
+    }
   },
 };
 
-router.get('/scenario', (req, res, next) => {
+router.get('/scenario/:userid', (req, res, next) => {
   scenario
-    .read()
+    .read(req.params.userid)
     .then((readResponse) => {
       res.send(readResponse);
     })
